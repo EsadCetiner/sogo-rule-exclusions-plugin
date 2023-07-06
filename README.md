@@ -6,9 +6,11 @@ This plugin contains rule exclusions to fix false positives when using SOGo Grou
 - ModSecurity compatable Web Application Firewall
 
 # How to install the plugin
-To install this plugin, create a include for the file ``plugins/sogo-rule-exclusions-config.conf`` and ``plugins/sogo-rule-exclusions-before.conf`` after ``crs-setup.conf`` but before loading any CRS rules.
+Copy and paste the file ``sogo-rule-exclusions-before.conf`` and ``sogo-rule-exclusions-config.conf`` file into your CRS plugin folder.
 
-See below for an example on how to install:
+Create a include for the file ``plugins/sogo-rule-exclusions-config.conf`` and ``plugins/sogo-rule-exclusions-before.conf`` after ``crs-setup.conf`` but before loading any CRS rules.
+
+See below for an example on how to create the includes:
 ```
 Include /path/to/coreruleset/modsecurity.conf
 Include /path/to/coreruleset/crs-setup.conf
@@ -18,6 +20,10 @@ Include /path/to/coreruleset/plugins/sogo-rule-exclusions-before.conf
 
 Include /path/to/coreruleset/rules/*.conf
 ```
+
+Then reload your WAF to apply the new changes (Restart for Nginx ModSec users)
+
+You can also refer to official CRS documentation on how to install a plugin https://coreruleset.org/docs/concepts/plugins/#how-to-install-a-plugin
 
 # Disabling the plugin
 The plugin can be disabled by uncommenting rule 9520000 inside ``plugins/sogo-rule-exclusions-config.conf`` or by removing the includes for this plugin.
