@@ -1,0 +1,23 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "SOGo Rule Exclusions Plugin"
+  enabled: true
+  name: 9520141.yaml
+tests:
+  - test_title: 9520141-1
+    desc: Allow text/vcard content type for cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/dav/username/Contacts/work/johndoe.vcf
+          output:
+            no_log_contains: id "920420"
