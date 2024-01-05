@@ -3,10 +3,10 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520101.yaml
+  name: 9520133.yaml
 tests:
-  - test_title: 9520101-1
-    desc: Disable OWASP_CRS for password box when logging in
+  - test_title: 9520133-1
+    desc: Disable 931130 for ARGS:json.url
     stages:
       - stage:
           input:
@@ -15,8 +15,9 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
             port: 80
-            method: POST
-            uri: /SOGo/connect?json.password=<script>
+            method: GET
+            uri: /SOGo/so/user@example.com/Calendar/addWebCalendar?json.url=https://example.com
           output:
-            no_log_contains: id "941110"
+            no_log_contains: id "931130"
