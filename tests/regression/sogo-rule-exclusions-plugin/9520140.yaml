@@ -1,0 +1,87 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "SOGo Rule Exclusions Plugin"
+  enabled: true
+  name: 9520140.yaml
+tests:
+  - test_title: 9520140-1
+    desc: Allow PUT request method for Caldav/Cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: PUT
+            uri: /SOGo/dav/stuff
+          output:
+            no_log_contains: id "911000"
+  - test_title: 9520140-2
+    desc: Allow DELETE request method for Caldav/Cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: DELETE
+            uri: /SOGo/dav/stuff
+          output:
+            no_log_contains: id "911000"
+  - test_title: 9520140-3
+    desc: Allow PROPFIND request method for Caldav/Cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: PROPFIND
+            uri: /SOGo/dav/stuff
+          output:
+            no_log_contains: id "911000"
+  - test_title: 9520140-4
+    desc: Allow REPORT request method for Caldav/Cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: REPORT
+            uri: /SOGo/dav/stuff
+          output:
+            no_log_contains: id "911000"
+  - test_title: 9520140-5
+    desc: Allow MKCOL request method for Caldav/Cardav
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: MKCOL
+            uri: /SOGo/dav/stuff
+          output:
+            no_log_contains: id "911000"
