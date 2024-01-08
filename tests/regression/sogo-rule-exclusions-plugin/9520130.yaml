@@ -1,0 +1,37 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "SOGo Rule Exclusions Plugin"
+  enabled: true
+  name: 9520130.yaml
+tests:
+  - test_title: 9520130-1
+    desc: Disable 931130 for ARGS:json.attachUrls.array_0.value
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsTask?json.attachUrls.array_0.value=https://example.com/
+          output:
+            no_log_contains: id "931130"
+  - test_title: 9520130-2
+    desc: Disable 931130 for ARGS:json.attachUrls.array_0.value
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/save?json.attachUrls.array_0.value=https://example.com/
+          output:
+            no_log_contains: id "931130"
