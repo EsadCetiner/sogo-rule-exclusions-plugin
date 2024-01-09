@@ -1,0 +1,135 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "SOGo Rule Exclusions Plugin"
+  enabled: true
+  name: 9520104.yaml
+tests:
+  - test_title: 9520104-1
+    desc: Disable OWASP CRS for email body when sending an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send?json.text=<script>
+          output:
+            no_log_contains: id "941110"
+  - test_title: 9520104-2
+    desc: Disable OWASP CRS for email body when saving an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/save?json.text=<script>
+          output:
+            no_log_contains: id "941110"
+  - test_title: 9520104-3
+    desc: Disable OWASP CRS for email subject when sending an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send?json.subject=<script>
+          output:
+            no_log_contains: id "941110"
+  - test_title: 9520104-4
+    desc: Disable OWASP CRS for email subject when saving an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/save?json.subject=<script>
+          output:
+            no_log_contains: id "941110"
+  - test_title: 9520104-5
+    desc: Disable 942131 for source email address when saving an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/save?json.from=<postmaster@example.com>Postmaster
+          output:
+            no_log_contains: id "942131"
+  - test_title: 9520104-6
+    desc: Disable 942131 for source email address when sending an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send?json.from=<postmaster@example.com>Postmaster
+          output:
+            no_log_contains: id "942131"
+  - test_title: 9520104-7
+    desc: Disable 942131 for destination email address when saving an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/save?json.to.array_0=<postmaster@example.com>Postmaster
+          output:
+            no_log_contains: id "942131"
+  - test_title: 9520104-8
+    desc: Disable 942131 for destination email address when sending an email
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: text/vcard
+            port: 80
+            method: GET
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send?json.to.array_0=<postmaster@example.com>Postmaster
+          output:
+            no_log_contains: id "942131"
