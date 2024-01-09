@@ -38,7 +38,7 @@ tests:
           output:
             no_log_contains: id "942450"
   - test_title: 9520100-3
-    desc: Disable 942450 for identviewsplitter cookie name
+    desc: Disable 942450 for 0xHIGHFLYxSOGo cookie
     stages:
       - stage:
           input:
