@@ -1,5 +1,4 @@
 ![Integration tests](https://github.com/EsadCetiner/sogo-rule-exclusions-plugin/actions/workflows/integration.yml/badge.svg)
-![Lint tests](https://github.com/EsadCetiner/sogo-rule-exclusions-plugin/actions/workflows/lint.yml/badge.svg)
 
 # SOGo-rule-exclusions-plugin
 This plugin contains rule exclusions to fix false positives when using SOGo Groupware with the OWASP Core Rule Set.
