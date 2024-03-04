@@ -20,7 +20,7 @@ tests:
             method: POST
             uri: /SOGo/so/user@example.com/Contacts/work-contacts/save
             data: |
-              {"name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
-              "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1}
+              { "name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
+              "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1 }
           output:
             no_log_contains: id "931130"

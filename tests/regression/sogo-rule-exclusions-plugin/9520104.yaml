@@ -18,7 +18,7 @@ tests:
               Content-Type: application/json;charset=UTF-8
             port: 80
             method: POST
-            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send?json.text=<script>
+            uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send
             data: |
               {"to":["postmaster  <postmaster@example.com>"],"cc":[],"bcc":[],"isHTML":1,"text":"<p>&lt;script&gt;</p>","from":"postmaster <postmaster@example.com>","locale":"en","subject":"<script>"}
           output:
