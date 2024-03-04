@@ -6,7 +6,7 @@ meta:
   name: 9520131.yaml
 tests:
   - test_title: 9520131-1
-    desc: Disable 931130 for ARGS:json.attachUrls.array_0.value
+    desc: Modifying an existing Calendar event
     stages:
       - stage:
           input:
@@ -15,13 +15,22 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
             port: 80
-            method: GET
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/occurence42/save?json.attachUrls.array_0.value=https://example.com/
+            method: POST
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/occurence42/save
+            data: |
+              {"categories":[],"repeat":{"frequency":"daily"},"alarm":{},"delta":60,"calendar":"Personal Calendar","location":"test","component":"vevent",
+              "endDate":"2024-03-06","isTransparent":1,"id":"1C0-65E5E880-17-2141CA00.ics","priority":4,"localizedEndDate":"Wednesday, March 06, 2024",
+              "localizedStartTime":"02:30","localizedEndTime":"03:30","sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],
+              "comment":"test","userHasRSVP":0,"startDate":"2024-03-06","isAllDay":0,"localizedStartDate":"Wednesday, March 06, 2024","summary":"test",
+              "classification":"public","occurrenceId":"occurence1709710200","isEditable":1,"pid":"personal","type":"appointment","start":"2024-03-05T15:30:00.000Z",
+              "end":"2024-03-05T16:30:00.000Z","$hasAlarm":false,"destinationCalendar":"personal","selected":false,"delegatedTo":"","startTime":"02:30","endTime":"03:30",
+              "dueDate":"","dueTime":"","completedDate":""}
           output:
             no_log_contains: id "931130"
   - test_title: 9520131-2
-    desc: Disable 931130 for ARGS:json.attachUrls.array_0.value
+    desc: Creating an calendar event
     stages:
       - stage:
           input:
@@ -30,8 +39,15 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
             port: 80
-            method: GET
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsAppointment?json.attachUrls.array_0.value=https://example.com/
+            method: POST
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsAppointment
+            data: |
+              {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"appointment","start":"2024-03-04T15:15:00.000Z","end":"2024-03-04T16:15:00.000Z",
+              "$hasAlarm":false,"classification":"public","destinationCalendar":"personal","selected":false,"isNew":true,"id":"1C0-65E5E680-B-2141CA00.ics",
+              "sendAppointmentNotifications":1,"summary":"Stuff","location":"Somewhere","comment":"Come to somewhere, it's going to be awesome!","priority":2,
+              "isAllDay":1,"attachUrls":[{"value":"https://example.com/"}],"startDate":"2024-03-05","startTime":"02:15","endDate":"2024-03-05","endTime":"03:15",
+              "dueDate":"","dueTime":"","completedDate":""}
           output:
             no_log_contains: id "931130"

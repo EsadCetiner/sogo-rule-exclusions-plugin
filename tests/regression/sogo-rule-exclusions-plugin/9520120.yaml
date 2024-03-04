@@ -6,7 +6,7 @@ meta:
   name: 9520120.yaml
 tests:
   - test_title: 9520120-1
-    desc: Disable 931130 for ARGS:json.urls.array_0.value
+    desc: Creating/modifying a contact
     stages:
       - stage:
           input:
@@ -15,8 +15,13 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
             port: 80
-            method: GET
-            uri: /SOGo/so/user@example.com/Contacts/work-contacts/john-doe.vcf/saveAsContact?json.urls.array_0.value=https://example.com/
+            method: POST
+            uri: /SOGo/so/user@example.com/Contacts/work-contacts/john-doe.vcf/saveAsContact
+            data: |
+              {"refs":[],"categories":[],"c_screenname":null,"pid":"personal","c_component":"vcard","notes":[""],"empty":" ","isNew":true,"id":"1C0-65E5E480-9-2141CA00.vcf",
+              "urls":[{"type":"work","value":"https://www.fsf.org/"}],"c_cn":"display name","c_givenname":"Firstname","c_sn":"Lastname","nickname":"Nickname","org":"org","title":"title","role":"role",
+              "addresses":[{"type":"","postoffice":"","street":"","street2":"","locality":"","region":"","country":"","postalcode":""}],"birthday":""}
           output:
             no_log_contains: id "931130"

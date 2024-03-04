@@ -15,8 +15,11 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
             port: 80
             method: POST
-            uri: /SOGo/connect?json.password=<script>
+            uri: /SOGo/connect
+            data: |
+              { "userName": "postmaster@example.com", "password": "<script>", "domain": null, "rememberLogin": 0 }
           output:
             no_log_contains: id "941110"

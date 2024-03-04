@@ -15,9 +15,11 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
+              Content-Type: application/json;charset=UTF-8
             port: 80
             method: GET
-            uri: /SOGo/so/user@example.com/Calendar/addWebCalendar?json.url=https://example.com
+            uri: /SOGo/so/user@example.com/Calendar/addWebCalendar
+            data: |
+              {"url":"https://example.com/"}
           output:
             no_log_contains: id "931130"

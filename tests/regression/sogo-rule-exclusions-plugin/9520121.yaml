@@ -6,7 +6,7 @@ meta:
   name: 9520121.yaml
 tests:
   - test_title: 9520121-1
-    desc: Disable 931130 for ARGS:json.cardDavURL
+    desc: Modifying an addressbook properties
     stages:
       - stage:
           input:
@@ -15,8 +15,12 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
             port: 80
-            method: GET
-            uri: /SOGo/so/user@example.com/Contacts/work-contacts/save?json.cardDavURL=https://example.com/
+            method: POST
+            uri: /SOGo/so/user@example.com/Contacts/work-contacts/save
+            data: |
+              {"name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
+              "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1}
           output:
             no_log_contains: id "931130"
