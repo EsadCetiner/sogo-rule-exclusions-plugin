@@ -44,6 +44,7 @@ tests:
               "NotifyOnExternalModifications":{"postmaster@example.com:Calendar/personal":1,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},"AutoReloadedWebCalendars":{"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},
               "NotifyUserOnPersonalModifications":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"TasksFilterState":"view_incomplete","TasksSortingState":["status","1"],"FolderSynchronize":{"postmaster@example.com:Calendar/personal":1},
               "PreventInvitationsWhitelist":{},"EventsSortingState":["start","1"]},"ShowCompletedTasks":"0","General":{"PrivateSalt":"6c92b8b8d902cee3228ecacd0c33ad7433b451bf"}},"inboxSyncToken":"7-11"}
+            version: HTTP/1.1
             output:
               no_log_contains: |
                 id "(?:920272|920273|931130|932236|942131)"

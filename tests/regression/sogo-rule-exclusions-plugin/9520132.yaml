@@ -27,5 +27,6 @@ tests:
               "notifications":{"notifyOnPersonalModifications":0,"notifyUserOnPersonalModifications":0,"notifyOnExternalModifications":1},
               "name":"Personal Calendar","isWebCalendar":0,"synchronize":1,"showCalendarTasks":1,"owner":"postmaster@example.com",
               "acls":{"objectEraser":1,"objectCreator":1},"isOwned":true,"isSubscription":false}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"

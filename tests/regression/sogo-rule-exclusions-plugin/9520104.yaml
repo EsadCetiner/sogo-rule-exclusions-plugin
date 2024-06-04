@@ -21,6 +21,7 @@ tests:
             uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/send
             data: |
               {"to":["postmaster  <postmaster@example.com>"],"cc":[],"bcc":[],"isHTML":1,"text":"<p>&lt;script&gt;</p>","from":"postmaster <postmaster@example.com>","locale":"en","subject":"<script>"}
+            version: HTTP/1.1
           output:
             no_log_contains: id "941110"
   - test_title: 9520104-2
@@ -39,5 +40,6 @@ tests:
             uri: /SOGo/so/user@example.com/Mail/4/folderDrafts/newDraft-4/save
             data: |
               {"to":["postmaster  <postmaster@example.com>"],"cc":[],"bcc":[],"isHTML":1,"text":"<p>&lt;script&gt;</p>","from":"postmaster <postmaster@example.com>","locale":"en","subject":"<script>"}
+            version: HTTP/1.1
             output:
             no_log_contains: id "941110"

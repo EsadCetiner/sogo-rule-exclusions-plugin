@@ -21,5 +21,6 @@ tests:
             uri: /SOGo/connect
             data: |
               { "userName": "postmaster@example.com", "password": "<script>", "domain": null, "rememberLogin": 0 }
+            version: HTTP/1.1
           output:
             no_log_contains: id "941110"

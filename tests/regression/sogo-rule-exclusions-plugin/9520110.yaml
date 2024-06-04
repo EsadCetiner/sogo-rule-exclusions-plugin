@@ -21,5 +21,6 @@ tests:
             uri: /SOGo/so/changePassword
             data: |
               { "userName":null,"newPassword":"<script>","oldPassword":"<script>" }
+            version: HTTP/1.1
           output:
             no_log_contains: id "941110"

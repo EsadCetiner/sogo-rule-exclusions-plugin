@@ -19,6 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/
+            version: HTTP/1.1
           output:
             no_log_contains: |
               id "(?:920272|920273)"
@@ -36,6 +37,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/
+            version: HTTP/1.1
           output:
             no_log_contains: id "942450"
   - test_title: 9520100-3
@@ -52,6 +54,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/
+            version: HTTP/1.1
           output:
             no_log_contains: id "932236"
   - test_title: 9520100-4
@@ -68,6 +71,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/
+            version: HTTP/1.1
           output:
             no_log_contains: id "942450"
   - test_title: 9520100-5
@@ -84,5 +88,6 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/
+            version: HTTP/1.1
           output:
             no_log_contains: id "932236"

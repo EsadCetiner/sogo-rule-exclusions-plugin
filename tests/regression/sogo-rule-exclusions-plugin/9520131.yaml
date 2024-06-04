@@ -27,6 +27,7 @@ tests:
               "classification":"public","occurrenceId":"occurence1709710200","isEditable":1,"pid":"personal","type":"appointment","start":"2024-03-05T15:30:00.000Z",
               "end":"2024-03-05T16:30:00.000Z","$hasAlarm":false,"destinationCalendar":"personal","selected":false,"delegatedTo":"","startTime":"02:30","endTime":"03:30",
               "dueDate":"","dueTime":"","completedDate":""}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"
   - test_title: 9520131-2
@@ -49,5 +50,6 @@ tests:
               "sendAppointmentNotifications":1,"summary":"Stuff","location":"Somewhere","comment":"Come to somewhere, it's going to be awesome!","priority":2,
               "isAllDay":1,"attachUrls":[{"value":"https://example.com/"}],"startDate":"2024-03-05","startTime":"02:15","endDate":"2024-03-05","endTime":"03:15",
               "dueDate":"","dueTime":"","completedDate":""}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"
