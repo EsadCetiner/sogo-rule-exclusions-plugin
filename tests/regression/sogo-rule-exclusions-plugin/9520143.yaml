@@ -18,5 +18,6 @@ tests:
             port: 80
             method: PROPFIND
             uri: /
+            version: HTTP/1.1
           output:
             no_log_contains: id "911100"

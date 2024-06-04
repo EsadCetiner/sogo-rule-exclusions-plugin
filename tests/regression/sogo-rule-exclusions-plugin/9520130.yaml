@@ -25,6 +25,7 @@ tests:
               "id":"1BB-65E5EA80-1-7B69C580.ics","sendAppointmentNotifications":1,"attachUrls":[{"value":"https://example.com/"}],
               "summary":"test","due":"2024-03-04T15:30:26.610Z","dueDate":"2024-03-05","start":"2024-03-04T15:30:27.775Z","priority":4,"comment":"test",
               "location":"test","startDate":"2024-03-05","startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"
   - test_title: 9520130-2
@@ -48,5 +49,6 @@ tests:
               "localizedDueDate":"Tuesday, March 05, 2024","localizedStartDate":"Tuesday, March 05, 2024","summary":"test","classification":"confidential",
               "isEditable":1,"pid":"personal","type":"task","start":"2024-03-04T15:30:00.000Z","due":"2024-03-04T15:30:00.000Z","completed":"2024-03-04T15:40:01.319Z",
               "$hasAlarm":false,"destinationCalendar":"personal","selected":false,"startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"

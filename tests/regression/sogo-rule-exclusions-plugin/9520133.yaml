@@ -21,5 +21,6 @@ tests:
             uri: /SOGo/so/user@example.com/Calendar/addWebCalendar
             data: |
               {"url":"https://example.com/"}
+            version: HTTP/1.1
           output:
             no_log_contains: id "931130"
