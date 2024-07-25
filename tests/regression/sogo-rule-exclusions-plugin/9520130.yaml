@@ -27,7 +27,7 @@ tests:
               "location":"test","startDate":"2024-03-05","startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
             version: HTTP/1.1
           output:
-            no_log_contains: 
+            no_log_contains: |
               id "920273"|id "931130"|id "932236"|id "942432"
   - test_title: 9520130-2
     desc: Modifying an existing Calendar task
@@ -52,7 +52,7 @@ tests:
               "$hasAlarm":false,"destinationCalendar":"personal","selected":false,"startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
             version: HTTP/1.1
           output:
-            no_log_contains: 
+            no_log_contains: |
               id "920273"|id "931130"|id "932236"|id "942432"
   - test_title: 9520130-3
     desc: Modifying an existing Calendar event
@@ -78,7 +78,7 @@ tests:
               "dueDate":"","dueTime":"","completedDate":""}
             version: HTTP/1.1
           output:
-            no_log_contains: 
+            no_log_contains: |
               id "920273"|id "931130"|id "932236"|id "942432"
   - test_title: 9520130-4
     desc: Creating an calendar event
@@ -102,5 +102,5 @@ tests:
               "dueDate":"","dueTime":"","completedDate":""}
             version: HTTP/1.1
           output:
-            no_log_contains: 
+            no_log_contains: |
               id "920273"|id "931130"|id "932236"|id "942432"
