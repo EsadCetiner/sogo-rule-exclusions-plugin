@@ -15,7 +15,6 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
             port: 80
             method: PUT
             uri: /SOGo/dav/stuff
@@ -32,7 +31,6 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
             port: 80
             method: DELETE
             uri: /SOGo/dav/stuff
@@ -49,7 +47,6 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
             port: 80
             method: PROPFIND
             uri: /SOGo/dav/stuff
@@ -66,7 +63,6 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
             port: 80
             method: REPORT
             uri: /SOGo/dav/stuff
@@ -83,7 +79,6 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
             port: 80
             method: MKCOL
             uri: /SOGo/dav/stuff
