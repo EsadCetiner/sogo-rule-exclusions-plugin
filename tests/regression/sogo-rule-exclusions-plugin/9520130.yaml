@@ -27,7 +27,8 @@ tests:
               "location":"test","startDate":"2024-03-05","startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
             version: HTTP/1.1
           output:
-            no_log_contains: id "931130"
+            no_log_contains: |
+              id "920273"|id "931130"|id "932236"|id "942432"
   - test_title: 9520130-2
     desc: Modifying an existing Calendar task
     stages:
@@ -51,4 +52,55 @@ tests:
               "$hasAlarm":false,"destinationCalendar":"personal","selected":false,"startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
             version: HTTP/1.1
           output:
-            no_log_contains: id "931130"
+            no_log_contains: |
+              id "920273"|id "931130"|id "932236"|id "942432"
+  - test_title: 9520130-3
+    desc: Modifying an existing Calendar event
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
+            port: 80
+            method: POST
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/occurence42/save
+            data: |
+              {"categories":[],"repeat":{"frequency":"daily"},"alarm":{},"delta":60,"calendar":"Personal Calendar","location":"test","component":"vevent",
+              "endDate":"2024-03-06","isTransparent":1,"id":"1C0-65E5E880-17-2141CA00.ics","priority":4,"localizedEndDate":"Wednesday, March 06, 2024",
+              "localizedStartTime":"02:30","localizedEndTime":"03:30","sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],
+              "comment":"test","userHasRSVP":0,"startDate":"2024-03-06","isAllDay":0,"localizedStartDate":"Wednesday, March 06, 2024","summary":"test",
+              "classification":"public","occurrenceId":"occurence1709710200","isEditable":1,"pid":"personal","type":"appointment","start":"2024-03-05T15:30:00.000Z",
+              "end":"2024-03-05T16:30:00.000Z","$hasAlarm":false,"destinationCalendar":"personal","selected":false,"delegatedTo":"","startTime":"02:30","endTime":"03:30",
+              "dueDate":"","dueTime":"","completedDate":""}
+            version: HTTP/1.1
+          output:
+            no_log_contains: |
+              id "920273"|id "931130"|id "932236"|id "942432"
+  - test_title: 9520130-4
+    desc: Creating an calendar event
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/json;charset=UTF-8
+            port: 80
+            method: POST
+            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsAppointment
+            data: |
+              {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"appointment","start":"2024-03-04T15:15:00.000Z","end":"2024-03-04T16:15:00.000Z",
+              "$hasAlarm":false,"classification":"public","destinationCalendar":"personal","selected":false,"isNew":true,"id":"1C0-65E5E680-B-2141CA00.ics",
+              "sendAppointmentNotifications":1,"summary":"Stuff","location":"Somewhere","comment":"Come to somewhere, it's going to be awesome!","priority":2,
+              "isAllDay":1,"attachUrls":[{"value":"https://example.com/"}],"startDate":"2024-03-05","startTime":"02:15","endDate":"2024-03-05","endTime":"03:15",
+              "dueDate":"","dueTime":"","completedDate":""}
+            version: HTTP/1.1
+          output:
+            no_log_contains: |
+              id "920273"|id "931130"|id "932236"|id "942432"

@@ -3,10 +3,10 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520121.yaml
+  name: 9520105.yaml
 tests:
-  - test_title: 9520121-1
-    desc: Modifying an addressbook properties
+  - test_title: 9520105-1
+    desc: Entering an invalid password
     stages:
       - stage:
           input:
@@ -18,11 +18,10 @@ tests:
               Content-Type: application/json;charset=UTF-8
             port: 80
             method: POST
-            uri: /SOGo/so/user@example.com/Contacts/work-contacts/save
+            uri: /SOGo/so/passwordRecoveryEnabled
             data: |
-              { "name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
-              "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1 }
+              {"userName":"postmaster@example.com","domain":null}
             version: HTTP/1.1
           output:
             no_log_contains: |
-              id "920272"|id "920273|"id "931130"|id "932236"|id "942432"
+              id "920272"|id "920273"

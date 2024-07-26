@@ -25,4 +25,5 @@ tests:
               "addresses":[{"type":"","postoffice":"","street":"","street2":"","locality":"","region":"","country":"","postalcode":""}],"birthday":"" }
             version: HTTP/1.1
           output:
-            no_log_contains: id "931130"
+            no_log_contains: |
+              id "920272"|id "920273"|id "931130"|id "942432"
