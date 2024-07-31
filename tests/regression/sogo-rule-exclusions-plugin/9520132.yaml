@@ -19,7 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/so/user@example.com/Calendar/mycalendar/save
-            data: |
+            data: >-
               {"color":"#AAAAAA","active":1,"showCalendarAlarms":1,"includeInFreeBusy":1,"id":"personal","activeTasks":1,
               "urls":{"webDavXMLURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal.xml",
               "calDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal/",

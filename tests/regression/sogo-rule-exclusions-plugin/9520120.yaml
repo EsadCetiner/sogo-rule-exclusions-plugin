@@ -19,7 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/so/user@example.com/Contacts/work-contacts/john-doe.vcf/saveAsContact
-            data: |
+            data: >-
               { "refs":[],"categories":[],"c_screenname":null,"pid":"personal","c_component":"vcard","notes":[""],"empty":" ","isNew":true,"id":"1C0-65E5E480-9-2141CA00.vcf",
               "urls":[{"type":"work","value":"https://www.fsf.org/"}],"c_cn":"display name","c_givenname":"Firstname","c_sn":"Lastname","nickname":"Nickname","org":"org","title":"title","role":"role",
               "addresses":[{"type":"","postoffice":"","street":"","street2":"","locality":"","region":"","country":"","postalcode":""}],"birthday":"" }
