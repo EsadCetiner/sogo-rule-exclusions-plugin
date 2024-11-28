@@ -21,3 +21,19 @@ tests:
             version: HTTP/1.1
           output:
             no_log_contains: id "911100"
+  - test_title: 9520143-2
+    desc: Allow dav clients to discover dav path (Thunderbird)
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: SOGo rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: PUT
+            uri: /
+            version: HTTP/1.1
+          output:
+            no_log_contains: id "911100"
