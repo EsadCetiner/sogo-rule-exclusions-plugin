@@ -18,7 +18,7 @@ tests:
               Cookie: 0xHIGHFLYxSOGo=basic%20NmFxMHZ3UTNMaG5QSmh0ZitFRHNtTVl1SWwxZU5xMz%
             port: 80
             method: GET
-            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
+            uri: /SOGo/so/postmaster@example.com/Mail/view
             version: HTTP/1.1
           output:
             no_log_contains: |-
@@ -36,7 +36,7 @@ tests:
               Cookie: XSRF-TOKEN=0x080069f28b16140b7e860c363fb8e777e796a0581a1d; 0xHIGHFLYxSOGo=0x0800
             port: 80
             method: GET
-            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
+            uri: /SOGo/so/postmaster@example.com/Mail/view
             version: HTTP/1.1
           output:
             no_log_contains: id "942450"
@@ -53,7 +53,7 @@ tests:
               Cookie: XSRF-TOKEN=ls69f28b16140b7e860c363fb8e777e796a0581a1d; 0xHIGHFLYxSOGo=lsnbjdaf
             port: 80
             method: GET
-            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
+            uri: /SOGo/so/postmaster@example.com/Mail/view
             version: HTTP/1.1
           output:
             no_log_contains: id "932236"
