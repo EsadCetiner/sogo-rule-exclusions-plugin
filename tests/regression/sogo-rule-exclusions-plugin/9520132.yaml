@@ -29,5 +29,5 @@ tests:
               "acls":{"objectEraser":1,"objectCreator":1},"isOwned":true,"isSubscription":false}
             version: HTTP/1.1
           output:
-            no_log_contains: |
+            no_log_contains: |-
               id "920272"|id "920273"|id "931130"|id "942432"

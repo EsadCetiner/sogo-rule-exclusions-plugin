@@ -19,9 +19,9 @@ tests:
             port: 80
             method: POST
             uri: /SOGo/so/user@example.com/Calendar/addWebCalendar
-            data: |
+            data: |-
               {"url":"https://example.com/"}
             version: HTTP/1.1
           output:
-            no_log_contains: |
+            no_log_contains: |-
               id "920272"|id "920273"|id "931130"
