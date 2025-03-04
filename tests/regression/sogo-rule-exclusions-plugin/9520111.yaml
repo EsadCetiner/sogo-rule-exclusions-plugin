@@ -46,5 +46,5 @@ tests:
               "PreventInvitationsWhitelist":{},"EventsSortingState":["start","1"]},"ShowCompletedTasks":"0","General":{"PrivateSalt":"6c92b8b8d902cee3228ecacd0c33ad7433b451bf"}},"inboxSyncToken":"7-11"}
             version: HTTP/1.1
             output:
-              no_log_contains: |
+              no_log_contains: |-
                 id "920272"|id "920273"|id "921180"|id "931130"|id "932236"|id "942131"|id "942432"

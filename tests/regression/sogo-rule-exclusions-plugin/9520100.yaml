@@ -6,7 +6,7 @@ meta:
   name: 9520100.yaml
 tests:
   - test_title: 9520100-1
-    desc: Disable 920272 and 920273 for cookie header
+    desc: Disable 920272, 920273, and 921140 for cookie header
     stages:
       - stage:
           input:
@@ -15,16 +15,16 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: 0xHIGHFLYxSOGo=basic%20NmFxMHZ3UTNMaG5QSmh0ZitFRHNtTVl1SWwxZU5xMz%
+              Cookie: 0xHIGHFLYxSOGo=basic%20NmFxMHZ3UTNMaG5QSmh0ZitFRHNtTVl1SWwxZU5xMz%
             port: 80
-            method: POST
-            uri: /SOGo/
+            method: GET
+            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
             version: HTTP/1.1
           output:
-            no_log_contains: |
-              id "920273"|id "920272"
+            no_log_contains: |-
+              id "920272"|id "920273"|id "921140"
   - test_title: 9520100-2
-    desc: Disable 942450 for XSRF-TOKEN cookie
+    desc: Disable 942450 for XSRF-TOKEN and 0xHIGHFLYxSOGo cookie
     stages:
       - stage:
           input:
@@ -33,15 +33,15 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: XSRF-TOKEN=0x080069f28b16140b7e860c363fb8e777e796a0581a1d
+              Cookie: XSRF-TOKEN=0x080069f28b16140b7e860c363fb8e777e796a0581a1d; 0xHIGHFLYxSOGo=0x0800
             port: 80
-            method: POST
-            uri: /SOGo/
+            method: GET
+            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
             version: HTTP/1.1
           output:
             no_log_contains: id "942450"
   - test_title: 9520100-3
-    desc: Disable 932236 for XSRF-TOKEN cookie
+    desc: Disable 932236 for XSRF-TOKEN and 0xHIGHFLYxSOGo cookie
     stages:
       - stage:
           input:
@@ -50,44 +50,10 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: XSRF-TOKEN=ls69f28b16140b7e860c363fb8e777e796a0581a1d
+              Cookie: XSRF-TOKEN=ls69f28b16140b7e860c363fb8e777e796a0581a1d; 0xHIGHFLYxSOGo=lsnbjdaf
             port: 80
-            method: POST
-            uri: /SOGo/
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "932236"
-  - test_title: 9520100-4
-    desc: Disable 942450 for 0xHIGHFLYxSOGo cookie
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: 0xHIGHFLYxSOGo=0x0800
-            port: 80
-            method: POST
-            uri: /SOGo/
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "942450"
-  - test_title: 9520100-5
-    desc: Disable 932236 for 0xHIGHFLYxSOGo cookie
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: 0xHIGHFLYxSOGo=lsnbjdaf
-            port: 80
-            method: POST
-            uri: /SOGo/
+            method: GET
+            uri: /SOGo/so/postmaster@example.com/Mail/view#!/Mail/0/INBOX
             version: HTTP/1.1
           output:
             no_log_contains: id "932236"
