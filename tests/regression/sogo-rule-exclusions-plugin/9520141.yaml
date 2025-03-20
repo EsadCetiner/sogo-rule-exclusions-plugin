@@ -6,7 +6,7 @@ meta:
   name: 9520141.yaml
 tests:
   - test_title: 9520141-1
-    desc: Allow text/vcard content type for cardav
+    desc: Creating a contact via an DAV client
     stages:
       - stage:
           input:
@@ -15,10 +15,19 @@ tests:
               Host: localhost
               User-Agent: SOGo rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/vcard
+              Content-Type: text/vcard;charset=utf-8
             port: 80
-            method: GET
-            uri: /SOGo/dav/username/Contacts/work/johndoe.vcf
+            method: PUT
+            uri: /SOGo/dav/user@example.com/Contacts/users/7b3b2e62-e426-49e1-afd7-950da0d10997.vcf
+            data: |-
+              BEGIN:VCARD                                                                                                                                                                                                                                                                   VERSION:3.0
+              PRODID:+//IDN bitfire.at//DAVx5/4.4.8-ose ez-vcard/0.12.1
+              UID:7b3b2e62-e426-49e1-afd7-950da0d10997
+              FN:Test
+              N:;Test;;;
+              REV:2025-03-19T04:33:28Z
+              END:VCARD
             version: HTTP/1.1
           output:
-            no_log_contains: id "920420"
+            no_log_contains: |-
+              id "911100"|id "920420"
