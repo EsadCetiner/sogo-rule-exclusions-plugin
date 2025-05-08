@@ -25,3 +25,8 @@ If you find a false positive that this plugin does not cover then please open a 
 2. ModSecurity/Coraza Version
 3. modsec audit logs
 4. what caused the false positive
+
+## License
+Copyright (c) 2023-2025 Esad Cetiner
+
+This plugin is distributed under GNU General Public License V2 (GPLv2), please see the included LICENSE file for details.
