@@ -5,24 +5,23 @@ meta:
   enabled: true
   name: 9520121.yaml
 tests:
-  - test_title: 9520121-1
+  - test_id: 1
     desc: Modifying an addressbook properties
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Contacts/work-contacts/save
-            data: >-
-              { "name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
-              "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1 }
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920272"|id "920273|"id "931130"|id "932236"|id "942432"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Contacts/work-contacts/save
+          data: >-
+            { "name":"test","isEditable":true,"isRemote":false,"owner":"postmaster@example.com","isOwned":true,"isSubscription":false,"id":"1BE-65E5E580-B-1B22B300",
+            "publicCardDavURL":"","cardDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Contacts/1BE-65E5E580-B-1B22B300/","synchronize":1 }
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920272, 920273, 931130, 932236, 942432]

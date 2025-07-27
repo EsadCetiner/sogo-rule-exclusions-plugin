@@ -5,53 +5,51 @@ meta:
   enabled: true
   name: 9520144.yaml
 tests:
-  - test_title: 9520144-1
+  - test_id: 1
     desc: Getting CalDAV location via .well-known
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: PROPFIND
-            uri: /.well-known/caldav
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <prop>
-                    <current-user-principal />
-                  </prop>
-                </propfind>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920273"
-  - test_title: 9520144-2
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: PROPFIND
+          uri: /.well-known/caldav
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <prop>
+                  <current-user-principal />
+                </prop>
+              </propfind>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [911100, 920273]
+  - test_id: 2
     desc: Getting CardDAV path via .well-known
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: PROPFIND
-            uri: /.well-known/carddav
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <prop>
-                    <current-user-principal />
-                  </prop>
-                </propfind>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920273"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: PROPFIND
+          uri: /.well-known/carddav
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <prop>
+                  <current-user-principal />
+                </prop>
+              </propfind>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [911100, 920273]

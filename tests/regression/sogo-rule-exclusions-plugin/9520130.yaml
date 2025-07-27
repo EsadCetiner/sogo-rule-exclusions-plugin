@@ -5,102 +5,98 @@ meta:
   enabled: true
   name: 9520130.yaml
 tests:
-  - test_title: 9520130-1
+  - test_id: 1
     desc: Creating a new calendar task
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsTask
-            data: >-
-              {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"task","completed":"2024-03-04T15:37:15.262Z",
-              "$hasAlarm":false,"classification":"confidential","destinationCalendar":"personal","selected":false,"isNew":true,
-              "id":"1BB-65E5EA80-1-7B69C580.ics","sendAppointmentNotifications":1,"attachUrls":[{"value":"https://example.com/"}],
-              "summary":"test","due":"2024-03-04T15:30:26.610Z","dueDate":"2024-03-05","start":"2024-03-04T15:30:27.775Z","priority":4,"comment":"test",
-              "location":"test","startDate":"2024-03-05","startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920273"|id "931130"|id "932236"|id "942432"
-  - test_title: 9520130-2
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsTask
+          data: >-
+            {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"task","completed":"2024-03-04T15:37:15.262Z",
+            "$hasAlarm":false,"classification":"confidential","destinationCalendar":"personal","selected":false,"isNew":true,
+            "id":"1BB-65E5EA80-1-7B69C580.ics","sendAppointmentNotifications":1,"attachUrls":[{"value":"https://example.com/"}],
+            "summary":"test","due":"2024-03-04T15:30:26.610Z","dueDate":"2024-03-05","start":"2024-03-04T15:30:27.775Z","priority":4,"comment":"test",
+            "location":"test","startDate":"2024-03-05","startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920273, 931130, 932236, 942432]
+  - test_id: 2
     desc: Modifying an existing Calendar task
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/save
-            data: >-
-              {"categories":[],"alarm":{},"delta":60,"calendar":"Personal Calendar","component":"vtodo","location":"test",
-              "localizedDueTime":"02:30","id":"1BB-65E5EA80-1-7B69C580.ics","priority":5,"localizedStartTime":"02:30","dueDate":"2024-03-05",
-              "sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],"comment":"test","startDate":"2024-03-05",
-              "localizedDueDate":"Tuesday, March 05, 2024","localizedStartDate":"Tuesday, March 05, 2024","summary":"test","classification":"confidential",
-              "isEditable":1,"pid":"personal","type":"task","start":"2024-03-04T15:30:00.000Z","due":"2024-03-04T15:30:00.000Z","completed":"2024-03-04T15:40:01.319Z",
-              "$hasAlarm":false,"destinationCalendar":"personal","selected":false,"startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920273"|id "931130"|id "932236"|id "942432"
-  - test_title: 9520130-3
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/save
+          data: >-
+            {"categories":[],"alarm":{},"delta":60,"calendar":"Personal Calendar","component":"vtodo","location":"test",
+            "localizedDueTime":"02:30","id":"1BB-65E5EA80-1-7B69C580.ics","priority":5,"localizedStartTime":"02:30","dueDate":"2024-03-05",
+            "sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],"comment":"test","startDate":"2024-03-05",
+            "localizedDueDate":"Tuesday, March 05, 2024","localizedStartDate":"Tuesday, March 05, 2024","summary":"test","classification":"confidential",
+            "isEditable":1,"pid":"personal","type":"task","start":"2024-03-04T15:30:00.000Z","due":"2024-03-04T15:30:00.000Z","completed":"2024-03-04T15:40:01.319Z",
+            "$hasAlarm":false,"destinationCalendar":"personal","selected":false,"startTime":"02:30","endDate":"","endTime":"","dueTime":"02:30","completedDate":"2024-03-05"}
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920273, 931130, 932236, 942432]
+  - test_id: 3
     desc: Modifying an existing Calendar event
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/occurence42/save
-            data: >-
-              {"categories":[],"repeat":{"frequency":"daily"},"alarm":{},"delta":60,"calendar":"Personal Calendar","location":"test","component":"vevent",
-              "endDate":"2024-03-06","isTransparent":1,"id":"1C0-65E5E880-17-2141CA00.ics","priority":4,"localizedEndDate":"Wednesday, March 06, 2024",
-              "localizedStartTime":"02:30","localizedEndTime":"03:30","sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],
-              "comment":"test","userHasRSVP":0,"startDate":"2024-03-06","isAllDay":0,"localizedStartDate":"Wednesday, March 06, 2024","summary":"test",
-              "classification":"public","occurrenceId":"occurence1709710200","isEditable":1,"pid":"personal","type":"appointment","start":"2024-03-05T15:30:00.000Z",
-              "end":"2024-03-05T16:30:00.000Z","$hasAlarm":false,"destinationCalendar":"personal","selected":false,"delegatedTo":"","startTime":"02:30","endTime":"03:30",
-              "dueDate":"","dueTime":"","completedDate":""}
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920273"|id "931130"|id "932236"|id "942432"
-  - test_title: 9520130-4
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/occurence42/save
+          data: >-
+            {"categories":[],"repeat":{"frequency":"daily"},"alarm":{},"delta":60,"calendar":"Personal Calendar","location":"test","component":"vevent",
+            "endDate":"2024-03-06","isTransparent":1,"id":"1C0-65E5E880-17-2141CA00.ics","priority":4,"localizedEndDate":"Wednesday, March 06, 2024",
+            "localizedStartTime":"02:30","localizedEndTime":"03:30","sendAppointmentNotifications":1,"isErasable":1,"attachUrls":[{"value":"https://example.com/"}],
+            "comment":"test","userHasRSVP":0,"startDate":"2024-03-06","isAllDay":0,"localizedStartDate":"Wednesday, March 06, 2024","summary":"test",
+            "classification":"public","occurrenceId":"occurence1709710200","isEditable":1,"pid":"personal","type":"appointment","start":"2024-03-05T15:30:00.000Z",
+            "end":"2024-03-05T16:30:00.000Z","$hasAlarm":false,"destinationCalendar":"personal","selected":false,"delegatedTo":"","startTime":"02:30","endTime":"03:30",
+            "dueDate":"","dueTime":"","completedDate":""}
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920273, 931130, 932236, 942432]
+  - test_id: 4
     desc: Creating an calendar event
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsAppointment
-            data: >-
-              {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"appointment","start":"2024-03-04T15:15:00.000Z","end":"2024-03-04T16:15:00.000Z",
-              "$hasAlarm":false,"classification":"public","destinationCalendar":"personal","selected":false,"isNew":true,"id":"1C0-65E5E680-B-2141CA00.ics",
-              "sendAppointmentNotifications":1,"summary":"Stuff","location":"Somewhere","comment":"Come to somewhere, it's going to be awesome!","priority":2,
-              "isAllDay":1,"attachUrls":[{"value":"https://example.com/"}],"startDate":"2024-03-05","startTime":"02:15","endDate":"2024-03-05","endTime":"03:15",
-              "dueDate":"","dueTime":"","completedDate":""}
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920273"|id "931130"|id "932236"|id "942432"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Calendar/mycalendar/calendar.ics/saveAsAppointment
+          data: >-
+            {"categories":[],"alarm":{},"delta":60,"pid":"personal","type":"appointment","start":"2024-03-04T15:15:00.000Z","end":"2024-03-04T16:15:00.000Z",
+            "$hasAlarm":false,"classification":"public","destinationCalendar":"personal","selected":false,"isNew":true,"id":"1C0-65E5E680-B-2141CA00.ics",
+            "sendAppointmentNotifications":1,"summary":"Stuff","location":"Somewhere","comment":"Come to somewhere, it's going to be awesome!","priority":2,
+            "isAllDay":1,"attachUrls":[{"value":"https://example.com/"}],"startDate":"2024-03-05","startTime":"02:15","endDate":"2024-03-05","endTime":"03:15",
+            "dueDate":"","dueTime":"","completedDate":""}
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920273, 931130, 932236, 942432]

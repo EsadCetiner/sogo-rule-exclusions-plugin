@@ -5,23 +5,22 @@ meta:
   enabled: true
   name: 9520101.yaml
 tests:
-  - test_title: 9520101-1
+  - test_id: 1
     desc: Disable OWASP_CRS for password box when logging in
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/connect
-            data: |-
-              { "userName": "postmaster@example.com", "password": "<script>", "domain": null, "rememberLogin": 0 }
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "920272"|id "920273"|id "941110"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/connect
+          data: |-
+            { "userName": "postmaster@example.com", "password": "<script>", "domain": null, "rememberLogin": 0 }
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [920272, 920273, 941110]
