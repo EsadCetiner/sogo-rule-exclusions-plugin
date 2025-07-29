@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520104.yaml
+  test_id: 9520104
 tests:
   - test_id: 1
     desc: Sending an email
@@ -23,7 +23,11 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 942131, 942432, 941110]
+            no_expect_ids:
+              - 920273
+              - 942131
+              - 942432
+              - 941110
   - test_id: 2
     desc: Saving an draft email
     stages:
@@ -42,4 +46,8 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 942131, 942432, 941110]
+            no_expect_ids:
+              - 920273
+              - 942131
+              - 942432
+              - 941110

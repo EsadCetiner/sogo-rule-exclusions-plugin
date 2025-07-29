@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520144.yaml
+  test_id: 9520144
 tests:
   - test_id: 1
     desc: Getting CalDAV location via .well-known
@@ -28,7 +28,9 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [911100, 920273]
+            no_expect_ids:
+              - 911100
+              - 920273
   - test_id: 2
     desc: Getting CardDAV path via .well-known
     stages:
@@ -52,4 +54,6 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [911100, 920273]
+            no_expect_ids:
+              - 911100
+              - 920273

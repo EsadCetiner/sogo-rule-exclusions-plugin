@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520105.yaml
+  test_id: 9520105
 tests:
   - test_id: 1
     desc: Entering an invalid password
@@ -23,4 +23,6 @@ tests:
           version: HTTP/1.1
         output:
             log:
-              no_expect_ids: [920272, 920273]
+              no_expect_ids:
+                - 920272
+                - 920273

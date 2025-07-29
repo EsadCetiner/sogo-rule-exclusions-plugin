@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520130.yaml
+  test_id: 9520130
 tests:
   - test_id: 1
     desc: Creating a new calendar task
@@ -27,7 +27,11 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 931130, 932236, 942432]
+            no_expect_ids:
+              - 920273
+              - 931130
+              - 932236
+              - 942432
   - test_id: 2
     desc: Modifying an existing Calendar task
     stages:
@@ -51,7 +55,11 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 931130, 932236, 942432]
+            no_expect_ids:
+              - 920273
+              - 931130
+              - 932236
+              - 942432
   - test_id: 3
     desc: Modifying an existing Calendar event
     stages:
@@ -76,7 +84,11 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 931130, 932236, 942432]
+            no_expect_ids:
+              - 920273
+              - 931130
+              - 932236
+              - 942432
   - test_id: 4
     desc: Creating an calendar event
     stages:
@@ -99,4 +111,8 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [920273, 931130, 932236, 942432]
+            no_expect_ids:
+              - 920273
+              - 931130
+              - 932236
+              - 942432

@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520111.yaml
+  test_id: 9520111
 tests:
   - test_id: 1
     desc: Changing settings
@@ -46,4 +46,11 @@ tests:
           version: HTTP/1.1
           output:
             log:
-              no_expect_ids: [920272, 920273, 921180, 931130, 932236, 942131, 942432]
+              no_expect_ids:
+                - 920272
+                - 920273
+                - 921180
+                - 931130
+                - 932236
+                - 942131
+                - 942432

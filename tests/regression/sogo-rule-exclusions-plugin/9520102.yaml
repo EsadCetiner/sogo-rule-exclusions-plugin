@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
   enabled: true
-  name: 9520102.yaml
+  test_id: 9520102
 tests:
   - test_id: 1
     desc: Disable 920440 if uri ends in com
