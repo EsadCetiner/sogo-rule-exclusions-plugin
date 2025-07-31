@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520111
+rule_id: 9520111
 tests:
   - test_id: 1
     desc: Changing settings

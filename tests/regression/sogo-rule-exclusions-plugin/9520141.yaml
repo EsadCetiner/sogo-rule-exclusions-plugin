@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520141
+rule_id: 9520141
 tests:
   - test_id: 1
     desc: Creating a contact via an DAV client

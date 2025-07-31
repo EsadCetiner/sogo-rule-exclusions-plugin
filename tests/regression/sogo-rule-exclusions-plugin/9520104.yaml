@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520104
+rule_id: 9520104
 tests:
   - test_id: 1
     desc: Sending an email

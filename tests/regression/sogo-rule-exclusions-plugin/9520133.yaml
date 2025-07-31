@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520133
+rule_id: 9520133
 tests:
   - test_id: 1
     desc: Disable 931130 for ARGS:json.url

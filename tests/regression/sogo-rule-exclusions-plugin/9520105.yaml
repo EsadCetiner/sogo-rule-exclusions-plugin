@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520105
+rule_id: 9520105
 tests:
   - test_id: 1
     desc: Entering an invalid password

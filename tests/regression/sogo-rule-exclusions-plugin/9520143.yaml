@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520143
+rule_id: 9520143
 tests:
   - test_id: 1
     desc: Allow dav clients to discover dav path

@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520101
+rule_id: 9520101
 tests:
   - test_id: 1
     desc: Disable OWASP_CRS for password box when logging in

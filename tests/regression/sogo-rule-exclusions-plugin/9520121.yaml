@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  rule_id: 9520121
+rule_id: 9520121
 tests:
   - test_id: 1
     desc: Modifying an addressbook properties
