@@ -2,49 +2,54 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  enabled: true
-  name: 9520111.yaml
+rule_id: 9520111
 tests:
-  - test_title: 9520111-1
+  - test_id: 1
     desc: Changing settings
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/json;charset=UTF-8
-            port: 80
-            method: POST
-            uri: /SOGo/so/user@example.com/Preferences/save
-            data: >-
-              {"nextAlarm":null,"nextInboxPoll":{},"currentToast":{},"lastUid":null,"notifications":{},
-              "defaults":{"SOGoLDAPGroupExpansionEnabled":0,"SOGoTimeFormat":"%H:%M","SOGoMailLabelsColors":{"$label2":["Work","#FF9900"],
-              "$label5":["Later","#993399"],"$label1":["Important","#FF0000"],"$label4":["To Do","#3333FF"],"$mdnsent":["Return Receipt Sent","#006600"],
-              "$label3":["Personal","#009900"],"$forwarded":["Forwarded","#B01FE3"]},"SOGoMailAutoSave":5,"SOGoAppointmentSendEMailNotifications":1,
-              "SOGoMailAddOutgoingAddresses":0,"SOGoCalendarCategories":["Customer","Calls","Favorites","Meeting","Ideas","Miscellaneous","Birthday",
-              "Anniversary","Vacation","Travel","Projects","Suppliers","Gifts","Clients","Issues","Business","Holidays","Personal","Status","Competition",
-              "Follow up","Public Holiday"],"SOGoMailUseSignatureOnReply":1,"UserTimeZoneSecondsFromGMT":-18000,
-              "SOGoCalendarCategoriesColors":{"Customer":"#F8D800","Calls":"#0396FF","Favorites":"#EA5455","Meeting":"#7367F0","Ideas":"#32CCBC","Miscellaneous":"#F6416C","Birthday":"#28C76F","Anniversary":"#9F44D3",
-              "Vacation":"#623AA2","Travel":"#F55555","Projects":"#8C1BAB","Suppliers":"#9708CC","Gifts":"#736EFE","Clients":"#E96D71","Issues":"#3677FF","Business":"#FA016D","Holidays":"#0E197D","Personal":"#DE4313","Status":"#002661",
-              "Competition":"#6018DC","Follow up":"#D939CD","Public Holiday":"#E80505"},"SOGoCalendarDefaultReminder":"NONE","SOGoPasswordRecoveryQuestion":"SecretQuestion1","CDefaultsSize":16777215,"SOGoLoginModule":"Mail","SOGoDayStartTime":"08:00",
-              "SOGoCalendarTasksDefaultClassification":"PUBLIC","SOGoCalendarWeekdays":["SU","MO","TU","WE","TH","FR","SA"],"SOGoPasswordRecoveryMode":"Disabled","SOGoTimeZone":"America/New_York","SOGoRefreshViewCheck":"every_5_minutes","SOGoAnimationMode":"normal",
-              "SOGoLanguage":"English","SOGoMailUseSignatureOnForward":1,"SOGoMailDisplayFullEmail":0,"LocaleCode":"en","SOGoSelectedAddressBook":"collected","SOGoMailUseSignatureOnNew":1,"SOGoContactsCategories":[" VIP"," Press"," Family","Colleague"," Customer"," Business Partner",
-              " Provider"," Friend"," Competitor"],"SOGoFirstWeekOfYear":"January1","SOGoShortDateFormat":"%d-%b-%y","SOGoMailHideInlineAttachments":0,"SOGoDefaultCalendar":"selected","SOGoFirstDayOfWeek":1,"SOGoTOTPEnabled":0,
-              "SOGoCalendarEventsDefaultClassification":"PUBLIC","SOGoMailComposeMessageType":"html","SOGoGravatarEnabled":0,"SOGoLongDateFormat":"%A, %B %d, %Y","AuxiliaryMailAccounts":[{"tlsVerifyMode":"allowInsecureLocalhost",
-              "specialMailboxes":{"Sent":"Sent","Trash":"Trash","Junk":"Junk","Drafts":"Drafts","Templates":"Templates"},"identities":[{"email":"postmaster@example.com","fullName":"postmaster","isDefault":1}],
-              "smtpTlsVerifyMode":"allowInsecureLocalhost","delegates":[],"smtpServerName":"127.0.0.1","serverName":"127.0.0.1","receipts":{"receiptNonRecipientAction":"ignore","receiptAnyAction":"ignore","receiptAction":"ignore","receiptOutsideDomainAction":"ignore"},
-              "encryption":"tls","smtpEncryption":"tls","name":"postmaster@example.com","smtpPort":587,"userName":"postmaster@example.com","port":143}],"SOGoMailDisplayRemoteInlineImages":"never","SOGoMailAutoMarkAsReadDelay":0,
-              "SOGoMailComposeFontSize":0,"SOGoMailMessageForwarding":"inline","SOGoMailReplyPlacement":"below","SOGoDayEndTime":"18:00","Vacation":{"days":[],"autoReplyEmailAddresses":["postmaster@example.com"],"daysBetweenResponse":7},"emailSeparatorKeys":[9,13,186,188],
-              "ckLocaleCode":"en","hasActiveExternalSieveScripts":false,"SOGoDesktopNotifications":0},"settings":{"Mail":{},"Contact":{"SortingState":["c_cn","1"]},"Calendar":{"FoldersOrder":["personal","1C0-65E5E900-1B-2141CA00"],"View":"monthview","FolderColors":{"postmaster@example.com:Calendar/personal":"#AAAAAA",
-              "postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":"#AAAAAA"},"NotifyOnPersonalModifications":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"EventsFilterState":"view_next7","SelectedList":"eventsListView",
-              "FreeBusyExclusions":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"WebCalendars":{"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":"https://example.com/"},"InactiveFolders":[],
-              "NotifyOnExternalModifications":{"postmaster@example.com:Calendar/personal":1,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},"AutoReloadedWebCalendars":{"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},
-              "NotifyUserOnPersonalModifications":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"TasksFilterState":"view_incomplete","TasksSortingState":["status","1"],"FolderSynchronize":{"postmaster@example.com:Calendar/personal":1},
-              "PreventInvitationsWhitelist":{},"EventsSortingState":["start","1"]},"ShowCompletedTasks":"0","General":{"PrivateSalt":"6c92b8b8d902cee3228ecacd0c33ad7433b451bf"}},"inboxSyncToken":"7-11"}
-            version: HTTP/1.1
-            output:
-              no_log_contains: |-
-                id "920272"|id "920273"|id "921180"|id "931130"|id "932236"|id "942131"|id "942432"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Preferences/save
+          data: >-
+            {"nextAlarm":null,"nextInboxPoll":{},"currentToast":{},"lastUid":null,"notifications":{},
+            "defaults":{"SOGoLDAPGroupExpansionEnabled":0,"SOGoTimeFormat":"%H:%M","SOGoMailLabelsColors":{"$label2":["Work","#FF9900"],
+            "$label5":["Later","#993399"],"$label1":["Important","#FF0000"],"$label4":["To Do","#3333FF"],"$mdnsent":["Return Receipt Sent","#006600"],
+            "$label3":["Personal","#009900"],"$forwarded":["Forwarded","#B01FE3"]},"SOGoMailAutoSave":5,"SOGoAppointmentSendEMailNotifications":1,
+            "SOGoMailAddOutgoingAddresses":0,"SOGoCalendarCategories":["Customer","Calls","Favorites","Meeting","Ideas","Miscellaneous","Birthday",
+            "Anniversary","Vacation","Travel","Projects","Suppliers","Gifts","Clients","Issues","Business","Holidays","Personal","Status","Competition",
+            "Follow up","Public Holiday"],"SOGoMailUseSignatureOnReply":1,"UserTimeZoneSecondsFromGMT":-18000,
+            "SOGoCalendarCategoriesColors":{"Customer":"#F8D800","Calls":"#0396FF","Favorites":"#EA5455","Meeting":"#7367F0","Ideas":"#32CCBC","Miscellaneous":"#F6416C","Birthday":"#28C76F","Anniversary":"#9F44D3",
+            "Vacation":"#623AA2","Travel":"#F55555","Projects":"#8C1BAB","Suppliers":"#9708CC","Gifts":"#736EFE","Clients":"#E96D71","Issues":"#3677FF","Business":"#FA016D","Holidays":"#0E197D","Personal":"#DE4313","Status":"#002661",
+            "Competition":"#6018DC","Follow up":"#D939CD","Public Holiday":"#E80505"},"SOGoCalendarDefaultReminder":"NONE","SOGoPasswordRecoveryQuestion":"SecretQuestion1","CDefaultsSize":16777215,"SOGoLoginModule":"Mail","SOGoDayStartTime":"08:00",
+            "SOGoCalendarTasksDefaultClassification":"PUBLIC","SOGoCalendarWeekdays":["SU","MO","TU","WE","TH","FR","SA"],"SOGoPasswordRecoveryMode":"Disabled","SOGoTimeZone":"America/New_York","SOGoRefreshViewCheck":"every_5_minutes","SOGoAnimationMode":"normal",
+            "SOGoLanguage":"English","SOGoMailUseSignatureOnForward":1,"SOGoMailDisplayFullEmail":0,"LocaleCode":"en","SOGoSelectedAddressBook":"collected","SOGoMailUseSignatureOnNew":1,"SOGoContactsCategories":[" VIP"," Press"," Family","Colleague"," Customer"," Business Partner",
+            " Provider"," Friend"," Competitor"],"SOGoFirstWeekOfYear":"January1","SOGoShortDateFormat":"%d-%b-%y","SOGoMailHideInlineAttachments":0,"SOGoDefaultCalendar":"selected","SOGoFirstDayOfWeek":1,"SOGoTOTPEnabled":0,
+            "SOGoCalendarEventsDefaultClassification":"PUBLIC","SOGoMailComposeMessageType":"html","SOGoGravatarEnabled":0,"SOGoLongDateFormat":"%A, %B %d, %Y","AuxiliaryMailAccounts":[{"tlsVerifyMode":"allowInsecureLocalhost",
+            "specialMailboxes":{"Sent":"Sent","Trash":"Trash","Junk":"Junk","Drafts":"Drafts","Templates":"Templates"},"identities":[{"email":"postmaster@example.com","fullName":"postmaster","isDefault":1}],
+            "smtpTlsVerifyMode":"allowInsecureLocalhost","delegates":[],"smtpServerName":"127.0.0.1","serverName":"127.0.0.1","receipts":{"receiptNonRecipientAction":"ignore","receiptAnyAction":"ignore","receiptAction":"ignore","receiptOutsideDomainAction":"ignore"},
+            "encryption":"tls","smtpEncryption":"tls","name":"postmaster@example.com","smtpPort":587,"userName":"postmaster@example.com","port":143}],"SOGoMailDisplayRemoteInlineImages":"never","SOGoMailAutoMarkAsReadDelay":0,
+            "SOGoMailComposeFontSize":0,"SOGoMailMessageForwarding":"inline","SOGoMailReplyPlacement":"below","SOGoDayEndTime":"18:00","Vacation":{"days":[],"autoReplyEmailAddresses":["postmaster@example.com"],"daysBetweenResponse":7},"emailSeparatorKeys":[9,13,186,188],
+            "ckLocaleCode":"en","hasActiveExternalSieveScripts":false,"SOGoDesktopNotifications":0},"settings":{"Mail":{},"Contact":{"SortingState":["c_cn","1"]},"Calendar":{"FoldersOrder":["personal","1C0-65E5E900-1B-2141CA00"],"View":"monthview","FolderColors":{"postmaster@example.com:Calendar/personal":"#AAAAAA",
+            "postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":"#AAAAAA"},"NotifyOnPersonalModifications":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"EventsFilterState":"view_next7","SelectedList":"eventsListView",
+            "FreeBusyExclusions":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"WebCalendars":{"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":"https://example.com/"},"InactiveFolders":[],
+            "NotifyOnExternalModifications":{"postmaster@example.com:Calendar/personal":1,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},"AutoReloadedWebCalendars":{"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":1},
+            "NotifyUserOnPersonalModifications":{"postmaster@example.com:Calendar/personal":0,"postmaster@example.com:Calendar/1C0-65E5E900-1B-2141CA00":0},"TasksFilterState":"view_incomplete","TasksSortingState":["status","1"],"FolderSynchronize":{"postmaster@example.com:Calendar/personal":1},
+            "PreventInvitationsWhitelist":{},"EventsSortingState":["start","1"]},"ShowCompletedTasks":"0","General":{"PrivateSalt":"6c92b8b8d902cee3228ecacd0c33ad7433b451bf"}},"inboxSyncToken":"7-11"}
+          version: HTTP/1.1
+          output:
+            log:
+              no_expect_ids:
+                - 920272
+                - 920273
+                - 921180
+                - 931130
+                - 932236
+                - 942131
+                - 942432

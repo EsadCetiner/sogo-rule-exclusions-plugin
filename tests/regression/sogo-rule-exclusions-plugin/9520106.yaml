@@ -2,57 +2,56 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  enabled: true
-  name: 9520106.yaml
+rule_id: 9520106
 tests:
-  - test_title: 9520106-1
+  - test_id: 1
     desc: Viewing mail inbox
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: GET
-            uri: /SOGo/so/email@example.com/Mail/view
-            data: Error reading the certificate. Please install a new certificate.
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "953100"
-  - test_title: 9520106-2
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: GET
+          uri: /SOGo/so/email@example.com/Mail/view
+          data: Error reading the certificate. Please install a new certificate.
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [953100]
+  - test_id: 2
     desc: Viewing Contacts list
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: GET
-            uri: /SOGo/so/email@example.com/Contacts/view
-            data: Error reading the card certificate
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "953100"
-  - test_title: 9520106-3
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: GET
+          uri: /SOGo/so/email@example.com/Contacts/view
+          data: Error reading the card certificate
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [953100]
+  - test_id: 3
     desc: Viewing raw email
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: GET
-            uri: /SOGo/so/email@example.com/Mail//UIxMailPopupView
-            data: Error reading the card certificate
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "953100"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: GET
+          uri: /SOGo/so/email@example.com/Mail//UIxMailPopupView
+          data: Error reading the card certificate
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [953100]

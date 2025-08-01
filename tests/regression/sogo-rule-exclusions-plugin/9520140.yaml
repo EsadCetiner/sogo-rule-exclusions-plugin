@@ -2,296 +2,323 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  enabled: true
-  name: 9520140.yaml
+rule_id: 9520140
 tests:
-  - test_title: 9520140-1
+  - test_id: 1
     desc: Allow PUT request method for Caldav/Cardav
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: PUT
-            uri: /SOGo/dav/stuff
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "911000"
-  - test_title: 9520140-2
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: PUT
+          uri: /SOGo/dav/stuff
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [911000]
+  - test_id: 2
     desc: Allow DELETE request method for Caldav/Cardav
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: DELETE
-            uri: /SOGo/dav/stuff
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "911000"
-  - test_title: 9520140-3
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: DELETE
+          uri: /SOGo/dav/stuff
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [911000]
+  - test_id: 3
     desc: Allow REPORT request method for Caldav/Cardav
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: REPORT
-            uri: /SOGo/dav/stuff
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "911000"
-  - test_title: 9520140-4
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          port: 80
+          method: REPORT
+          uri: /SOGo/dav/stuff
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [911000]
+  - test_id: 4
     desc: Creating a new contact group
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: MKCOL
-            uri: /SOGo/dav/user@example.com/Contacts/e2f60a2d-d8e4-48ce-9478-16be8b0b5790/
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <mkcol xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <set>
-                    <prop>
-                      <resourcetype>
-                      <collection />
-                      <CARD:addressbook />
-                      </resourcetype>
-                      <displayname>test</displayname>
-                      <CARD:addressbook-description>
-                      </CARD:addressbook-description>
-                    </prop>
-                  </set>
-                </mkcol>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920272"|id "920273"|id "942421"|id "942430"|id "942431"|id "942432"|id "942440"
-  - test_title: 9520140-5
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: MKCOL
+          uri: /SOGo/dav/user@example.com/Contacts/e2f60a2d-d8e4-48ce-9478-16be8b0b5790/
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <mkcol xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <set>
+                  <prop>
+                    <resourcetype>
+                    <collection />
+                    <CARD:addressbook />
+                    </resourcetype>
+                    <displayname>test</displayname>
+                    <CARD:addressbook-description>
+                    </CARD:addressbook-description>
+                  </prop>
+                </set>
+              </mkcol>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 911100
+              - 920272
+              - 920273
+              - 942421
+              - 942430
+              - 942431
+              - 942432
+              - 942440
+  - test_id: 5
     desc: Getting Calendar information stored on the servers
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: PROPFIND
-            uri: /SOGo/dav/user@example.com/Calendar/personal/
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <prop>
-                    <CAL:max-resource-size />
-                    <n0:getctag xmlns:n0="http://calendarserver.org/ns/" />
-                    <sync-token />
-                  </prop>
-                </propfind>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920272"|id "920273"|id "942421"|id "942430"|id "942431"|id "942432"|id "942440"
-  - test_title: 9520140-6
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: PROPFIND
+          uri: /SOGo/dav/user@example.com/Calendar/personal/
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <prop>
+                  <CAL:max-resource-size />
+                  <n0:getctag xmlns:n0="http://calendarserver.org/ns/" />
+                  <sync-token />
+                </prop>
+              </propfind>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 911100
+              - 920272
+              - 920273
+              - 942421
+              - 942430
+              - 942431
+              - 942432
+              - 942440
+  - test_id: 6
     desc: Getting Contact information stored on the servers
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: PROPFIND
-            uri: /SOGo/dav/user@example.com/Contacts/users/
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <prop>
-                    <CARD:max-resource-size />
-                    <CARD:supported-address-data /><supported-report-set />
-                    <n0:getctag xmlns:n0="http://calendarserver.org/ns/" />
-                    <sync-token />
-                  </prop>
-                </propfind>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920272"|id "920273"|id "942421"|id "942430"|id "942431"|id "942432"|id "942440"
-  - test_title: 9520140-7
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: PROPFIND
+          uri: /SOGo/dav/user@example.com/Contacts/users/
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <propfind xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <prop>
+                  <CARD:max-resource-size />
+                  <CARD:supported-address-data /><supported-report-set />
+                  <n0:getctag xmlns:n0="http://calendarserver.org/ns/" />
+                  <sync-token />
+                </prop>
+              </propfind>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 911100
+              - 920272
+              - 920273
+              - 942421
+              - 942430
+              - 942431
+              - 942432
+              - 942440
+  - test_id: 7
     desc: Creating a new Calendar group
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/xml; charset=utf-8
-            port: 80
-            method: MKCALENDAR
-            uri: /SOGo/dav/user@example.com/Calendar/4988f589-48a3-4263-a7a2-dcc5adce5606/
-            data: |-
-              <?xml version='1.0' encoding='UTF-8' ?>
-                <CAL:mkcalendar xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
-                  <set>
-                    <prop>
-                      <resourcetype>
-                        <collection />
-                        <CAL:calendar />
-                      </resourcetype>
-                      <displayname>test</displayname>
-                      <CAL:calendar-description></CAL:calendar-description>
-                      <n0:calendar-color xmlns:n0="http://apple.com/ns/ical/">#BDB76BFF</n0:calendar-color>
-                      <CAL:calendar-timezone-id>Australia/Melbourne</CAL:calendar-timezone-id>
-                      <CAL:calendar-timezone>BEGIN:VCALENDAR
-                        PRODID:+//IDN bitfire.at//ical4android
-                        VERSION:2.0
-                        BEGIN:VTIMEZONE
-                        TZID:Australia/Melbourne
-                        LAST-MODIFIED:20240422T053450Z
-                        TZURL:https://www.tzurl.org/zoneinfo/Australia/Melbourne
-                        X-LIC-LOCATION:Australia/Melbourne
-                        X-PROLEPTIC-TZNAME:LMT
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+093952
-                        TZOFFSETTO:+1000
-                        DTSTART:18950201T000000
-                        END:STANDARD
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:19170101T020000
-                        RDATE:19420101T020000
-                        RDATE:19420927T020000
-                        RDATE:19431003T020000
-                        RDATE:20000827T020000
-                        END:DAYLIGHT
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19170325T030000
-                        RDATE:19720227T030000
-                        RDATE:20060402T030000
-                        RDATE:20070325T030000
-                        END:STANDARD
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19420329T030000
-                        RRULE:FREQ=YEARLY;UNTIL=19440325T160000Z;BYMONTH=3;BYDAY=-1SU
-                        END:STANDARD
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1000
-                        DTSTART:19710101T000000
-                        END:STANDARD
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:19711031T020000
-                        RRULE:FREQ=YEARLY;UNTIL=19851026T160000Z;BYMONTH=10;BYDAY=-1SU
-                        END:DAYLIGHT
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19730304T030000
-                        RRULE:FREQ=YEARLY;UNTIL=19850302T160000Z;BYMONTH=3;BYDAY=1SU
-                        END:STANDARD
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19860316T030000
-                        RRULE:FREQ=YEARLY;UNTIL=19900317T160000Z;BYMONTH=3;BYDAY=3SU
-                        END:STANDARD
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:19861019T020000
-                        RRULE:FREQ=YEARLY;UNTIL=19871017T160000Z;BYMONTH=10;BYDAY=3SU
-                        END:DAYLIGHT
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:19881030T020000
-                        RRULE:FREQ=YEARLY;UNTIL=19991030T160000Z;BYMONTH=10;BYDAY=-1SU
-                        END:DAYLIGHT
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19910303T030000
-                        RRULE:FREQ=YEARLY;UNTIL=19940305T160000Z;BYMONTH=3;BYDAY=1SU
-                        END:STANDARD
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:19950326T030000
-                        RRULE:FREQ=YEARLY;UNTIL=20050326T160000Z;BYMONTH=3;BYDAY=-1SU
-                        END:STANDARD
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:20011028T020000
-                        RRULE:FREQ=YEARLY;UNTIL=20071027T160000Z;BYMONTH=10;BYDAY=-1SU
-                        END:DAYLIGHT
-                        BEGIN:STANDARD
-                        TZNAME:AEST
-                        TZOFFSETFROM:+1100
-                        TZOFFSETTO:+1000
-                        DTSTART:20080406T030000
-                        RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
-                        END:STANDARD
-                        BEGIN:DAYLIGHT
-                        TZNAME:AEDT
-                        TZOFFSETFROM:+1000
-                        TZOFFSETTO:+1100
-                        DTSTART:20081005T020000
-                        RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU
-                        END:DAYLIGHT
-                        END:VTIMEZONE
-                        END:VCALENDAR
-                      </CAL:calendar-timezone>
-                    </prop>
-                  </set>
-                </CAL:mkcalendar>
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920272"|id "920273"|id "942421"|id "942430"|id "942431"|id "942432"|id "942440"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/xml; charset=utf-8
+          port: 80
+          method: MKCALENDAR
+          uri: /SOGo/dav/user@example.com/Calendar/4988f589-48a3-4263-a7a2-dcc5adce5606/
+          data: |-
+            <?xml version='1.0' encoding='UTF-8' ?>
+              <CAL:mkcalendar xmlns="DAV:" xmlns:CAL="urn:ietf:params:xml:ns:caldav" xmlns:CARD="urn:ietf:params:xml:ns:carddav">
+                <set>
+                  <prop>
+                    <resourcetype>
+                      <collection />
+                      <CAL:calendar />
+                    </resourcetype>
+                    <displayname>test</displayname>
+                    <CAL:calendar-description></CAL:calendar-description>
+                    <n0:calendar-color xmlns:n0="http://apple.com/ns/ical/">#BDB76BFF</n0:calendar-color>
+                    <CAL:calendar-timezone-id>Australia/Melbourne</CAL:calendar-timezone-id>
+                    <CAL:calendar-timezone>BEGIN:VCALENDAR
+                      PRODID:+//IDN bitfire.at//ical4android
+                      VERSION:2.0
+                      BEGIN:VTIMEZONE
+                      TZID:Australia/Melbourne
+                      LAST-MODIFIED:20240422T053450Z
+                      TZURL:https://www.tzurl.org/zoneinfo/Australia/Melbourne
+                      X-LIC-LOCATION:Australia/Melbourne
+                      X-PROLEPTIC-TZNAME:LMT
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+093952
+                      TZOFFSETTO:+1000
+                      DTSTART:18950201T000000
+                      END:STANDARD
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:19170101T020000
+                      RDATE:19420101T020000
+                      RDATE:19420927T020000
+                      RDATE:19431003T020000
+                      RDATE:20000827T020000
+                      END:DAYLIGHT
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19170325T030000
+                      RDATE:19720227T030000
+                      RDATE:20060402T030000
+                      RDATE:20070325T030000
+                      END:STANDARD
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19420329T030000
+                      RRULE:FREQ=YEARLY;UNTIL=19440325T160000Z;BYMONTH=3;BYDAY=-1SU
+                      END:STANDARD
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1000
+                      DTSTART:19710101T000000
+                      END:STANDARD
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:19711031T020000
+                      RRULE:FREQ=YEARLY;UNTIL=19851026T160000Z;BYMONTH=10;BYDAY=-1SU
+                      END:DAYLIGHT
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19730304T030000
+                      RRULE:FREQ=YEARLY;UNTIL=19850302T160000Z;BYMONTH=3;BYDAY=1SU
+                      END:STANDARD
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19860316T030000
+                      RRULE:FREQ=YEARLY;UNTIL=19900317T160000Z;BYMONTH=3;BYDAY=3SU
+                      END:STANDARD
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:19861019T020000
+                      RRULE:FREQ=YEARLY;UNTIL=19871017T160000Z;BYMONTH=10;BYDAY=3SU
+                      END:DAYLIGHT
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:19881030T020000
+                      RRULE:FREQ=YEARLY;UNTIL=19991030T160000Z;BYMONTH=10;BYDAY=-1SU
+                      END:DAYLIGHT
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19910303T030000
+                      RRULE:FREQ=YEARLY;UNTIL=19940305T160000Z;BYMONTH=3;BYDAY=1SU
+                      END:STANDARD
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:19950326T030000
+                      RRULE:FREQ=YEARLY;UNTIL=20050326T160000Z;BYMONTH=3;BYDAY=-1SU
+                      END:STANDARD
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:20011028T020000
+                      RRULE:FREQ=YEARLY;UNTIL=20071027T160000Z;BYMONTH=10;BYDAY=-1SU
+                      END:DAYLIGHT
+                      BEGIN:STANDARD
+                      TZNAME:AEST
+                      TZOFFSETFROM:+1100
+                      TZOFFSETTO:+1000
+                      DTSTART:20080406T030000
+                      RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
+                      END:STANDARD
+                      BEGIN:DAYLIGHT
+                      TZNAME:AEDT
+                      TZOFFSETFROM:+1000
+                      TZOFFSETTO:+1100
+                      DTSTART:20081005T020000
+                      RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU
+                      END:DAYLIGHT
+                      END:VTIMEZONE
+                      END:VCALENDAR
+                    </CAL:calendar-timezone>
+                  </prop>
+                </set>
+              </CAL:mkcalendar>
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 911100
+              - 920272
+              - 920273
+              - 942421
+              - 942430
+              - 942431
+              - 942432
+              - 942440

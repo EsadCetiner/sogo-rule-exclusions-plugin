@@ -2,59 +2,59 @@
 meta:
   author: "Esad Cetiner"
   description: "SOGo Rule Exclusions Plugin"
-  enabled: true
-  name: 9520142.yaml
+rule_id: 9520142
 tests:
-  - test_title: 9520142-1
+  - test_id: 1
     desc: Creating an Calendar via an DAV client
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: SOGo rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: text/calendar;charset=utf-8
-            port: 80
-            method: PUT
-            uri: /SOGo/dav/user@example.com/Calendar/personal/7490c58f-897e-4013-888f-bba5b35e62f2.ics
-            data: |-
-              BEGIN:VCALENDAR
-              VERSION:2.0
-              PRODID:DAVx5/4.4.8-ose ical4j/3.2.19 (org.fossify.calendar)
-              BEGIN:VEVENT
-              DTSTAMP:20250319T043635Z
-              UID:7490c58f-897e-4013-888f-bba5b35e62f2
-              SUMMARY:Test
-              DTSTART;TZID=Australia/Sydney:20250319T160000
-              DTEND;TZID=Australia/Sydney:20250319T160000
-              STATUS:CONFIRMED
-              BEGIN:VALARM
-              TRIGGER:-PT1H
-              ACTION:DISPLAY
-              DESCRIPTION:Test
-              END:VALARM
-              END:VEVENT
-              BEGIN:VTIMEZONE
-              TZID:Australia/Sydney
-              BEGIN:STANDARD
-              TZNAME:AEST
-              TZOFFSETFROM:+1100
-              TZOFFSETTO:+1000
-              DTSTART:20080406T030000
-              RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
-              END:STANDARD
-              BEGIN:DAYLIGHT
-              TZNAME:AEDT
-              TZOFFSETFROM:+1000
-              TZOFFSETTO:+1100
-              DTSTART:20081005T020000
-              RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU
-              END:DAYLIGHT
-              END:VTIMEZONE
-              END:VCALENDAR
-            version: HTTP/1.1
-          output:
-            no_log_contains: |-
-              id "911100"|id "920420"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: text/calendar;charset=utf-8
+          port: 80
+          method: PUT
+          uri: /SOGo/dav/user@example.com/Calendar/personal/7490c58f-897e-4013-888f-bba5b35e62f2.ics
+          data: |-
+            BEGIN:VCALENDAR
+            VERSION:2.0
+            PRODID:DAVx5/4.4.8-ose ical4j/3.2.19 (org.fossify.calendar)
+            BEGIN:VEVENT
+            DTSTAMP:20250319T043635Z
+            UID:7490c58f-897e-4013-888f-bba5b35e62f2
+            SUMMARY:Test
+            DTSTART;TZID=Australia/Sydney:20250319T160000
+            DTEND;TZID=Australia/Sydney:20250319T160000
+            STATUS:CONFIRMED
+            BEGIN:VALARM
+            TRIGGER:-PT1H
+            ACTION:DISPLAY
+            DESCRIPTION:Test
+            END:VALARM
+            END:VEVENT
+            BEGIN:VTIMEZONE
+            TZID:Australia/Sydney
+            BEGIN:STANDARD
+            TZNAME:AEST
+            TZOFFSETFROM:+1100
+            TZOFFSETTO:+1000
+            DTSTART:20080406T030000
+            RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU
+            END:STANDARD
+            BEGIN:DAYLIGHT
+            TZNAME:AEDT
+            TZOFFSETFROM:+1000
+            TZOFFSETTO:+1100
+            DTSTART:20081005T020000
+            RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU
+            END:DAYLIGHT
+            END:VTIMEZONE
+            END:VCALENDAR
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 911100
+              - 920420
