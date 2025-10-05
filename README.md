@@ -1,7 +1,7 @@
 ![Integration tests](https://github.com/EsadCetiner/sogo-rule-exclusions-plugin/actions/workflows/integration.yml/badge.svg)
 
 # SOGo-rule-exclusions-plugin
-This plugin contains rule exclusions to fix false positives when using SOGo Groupware with the OWASP Core Rule Set.
+This plugin contains rule exclusions for SOGo Groupware. These rules are designed to resolve common false positives and allow for easier intergration with OWASP CRS.
 
 ## Requirements
 - CRS Version 4.0 or newer
