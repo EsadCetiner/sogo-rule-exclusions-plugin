@@ -24,9 +24,10 @@ tests:
           log:
             no_expect_ids:
               - 920273
+              - 941110
               - 942131
               - 942432
-              - 941110
+              - 942550
   - test_id: 2
     desc: Saving an draft email
     stages:
@@ -47,6 +48,7 @@ tests:
           log:
             no_expect_ids:
               - 920273
+              - 941110
               - 942131
               - 942432
-              - 941110
+              - 942550

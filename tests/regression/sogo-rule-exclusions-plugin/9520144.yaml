@@ -29,6 +29,7 @@ tests:
           log:
             no_expect_ids:
               - 911100
+              - 920272
               - 920273
   - test_id: 2
     desc: Getting CardDAV path via .well-known
@@ -55,4 +56,5 @@ tests:
           log:
             no_expect_ids:
               - 911100
+              - 920272
               - 920273
