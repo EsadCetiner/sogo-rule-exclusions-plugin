@@ -17,14 +17,7 @@ tests:
           port: 80
           method: POST
           uri: /SOGo/so/user@example.com/Calendar/mycalendar/save
-          data: >-
-            {"color":"#AAAAAA","active":1,"showCalendarAlarms":1,"includeInFreeBusy":1,"id":"personal","activeTasks":1,
-            "urls":{"webDavXMLURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal.xml",
-            "calDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal/",
-            "webDavICSURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal.ics"},
-            "notifications":{"notifyOnPersonalModifications":0,"notifyUserOnPersonalModifications":0,"notifyOnExternalModifications":1},
-            "name":"Personal Calendar","isWebCalendar":0,"synchronize":1,"showCalendarTasks":1,"owner":"postmaster@example.com",
-            "acls":{"objectEraser":1,"objectCreator":1},"isOwned":true,"isSubscription":false}
+          data: '{"color":"#AAAAAA","active":1,"showCalendarAlarms":1,"includeInFreeBusy":1,"id":"personal","activeTasks":1,"urls":{"webDavXMLURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal.xml","calDavURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal/","webDavICSURL":"https://sogo.example.com/SOGo/dav/postmaster@example.com/Calendar/personal.ics"},"notifications":{"notifyOnPersonalModifications":0,"notifyUserOnPersonalModifications":0,"notifyOnExternalModifications":1},"name":"Personal Calendar","isWebCalendar":0,"synchronize":1,"showCalendarTasks":1,"owner":"postmaster@example.com","acls":{"objectEraser":1,"objectCreator":1},"isOwned":true,"isSubscription":false}'
           version: HTTP/1.1
         output:
           log:

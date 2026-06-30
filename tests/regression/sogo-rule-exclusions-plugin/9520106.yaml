@@ -4,9 +4,25 @@ meta:
   description: "SOGo Rule Exclusions Plugin"
 rule_id: 9520106
 tests:
+
   - test_id: 1
     desc: Viewing mail inbox
     stages:
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: POST
+          uri: /configure_reflection
+          data: |-
+            { "endpoints": [{"method": "GET", "url": "/SOGo/so/email@example.com/Mail/view"}], "body": "Error reading the certificate. Please install a new certificate." }
+          version: HTTP/1.1
+
       - input:
           dest_addr: 127.0.0.1
           headers:
@@ -16,16 +32,43 @@ tests:
           port: 80
           method: GET
           uri: /SOGo/so/email@example.com/Mail/view
-          data: Error reading the certificate. Please install a new certificate.
           version: HTTP/1.1
         output:
           log:
             no_expect_ids:
               - 953100
               - 953101
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: PUT
+          uri: /reset
+          version: HTTP/1.1
+
   - test_id: 2
     desc: Viewing Contacts list
     stages:
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: POST
+          uri: /configure_reflection
+          data: |-
+            { "endpoints": [{"method": "GET", "url": "/SOGo/so/email@example.com/Contacts/view"}], "body": "Error reading the card certificate" }
+          version: HTTP/1.1
+
       - input:
           dest_addr: 127.0.0.1
           headers:
@@ -35,16 +78,43 @@ tests:
           port: 80
           method: GET
           uri: /SOGo/so/email@example.com/Contacts/view
-          data: Error reading the card certificate
           version: HTTP/1.1
         output:
           log:
             no_expect_ids:
               - 953100
               - 953101
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: PUT
+          uri: /reset
+          version: HTTP/1.1
+
   - test_id: 3
     desc: Viewing raw email
     stages:
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: POST
+          uri: /configure_reflection
+          data: |-
+            { "endpoints": [{"method": "GET", "url": "/SOGo/so/email@example.com/Mail//UIxMailPopupView"}], "body": "Error reading the card certificate" }
+          version: HTTP/1.1
+
       - input:
           dest_addr: 127.0.0.1
           headers:
@@ -54,10 +124,21 @@ tests:
           port: 80
           method: GET
           uri: /SOGo/so/email@example.com/Mail//UIxMailPopupView
-          data: Error reading the card certificate
           version: HTTP/1.1
         output:
           log:
             no_expect_ids:
               - 953100
               - 953101
+
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: OWASP CRS test agent
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json
+          port: 80
+          method: PUT
+          uri: /reset
+          version: HTTP/1.1
