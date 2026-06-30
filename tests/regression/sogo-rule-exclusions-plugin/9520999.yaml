@@ -1,11 +1,11 @@
 ---
 meta:
   author: "Esad Cetiner"
-  description: "SOGo Rule Exclusions Plugin"
-rule_id: 9520100
+  description: "SOGo Rule Exclusions Plugin: Tests for CRS false positives that no longer exist"
+rule_id: 9520999
 tests:
   - test_id: 1
-    desc: Disable 920272, 920273, and 921140 for cookie header
+    desc: Disable 932236 for XSRF-TOKEN and 0xHIGHFLYxSOGo cookie
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -13,14 +13,11 @@ tests:
             Host: localhost
             User-Agent: SOGo rule exclusions plugin
             Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            Cookie: 0xHIGHFLYxSOGo=basic%20NmFxMHZ3UTNMaG5QSmh0ZitFRHNtTVl1SWwxZU5xMz%
+            Cookie: XSRF-TOKEN=ls69f28b16140b7e860c363fb8e777e796a0581a1d; 0xHIGHFLYxSOGo=lsnbjdaf
           port: 80
           method: GET
           uri: /SOGo/so/postmaster@example.com/Mail/view
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids:
-              - 920272
-              - 920273
-              - 921140
+            no_expect_ids: [932236]
