@@ -27,6 +27,6 @@ If you find a false positive that this plugin does not cover then please open a 
 4. what caused the false positive
 
 ## License
-Copyright (c) 2023-2025 Esad Cetiner
+Copyright (c) 2023-2026 Esad Cetiner
 
 This plugin is distributed under GNU General Public License V2 (GPLv2), please see the included LICENSE file for details.
