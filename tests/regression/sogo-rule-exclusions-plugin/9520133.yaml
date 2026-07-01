@@ -5,7 +5,7 @@ meta:
 rule_id: 9520133
 tests:
   - test_id: 1
-    desc: Disable 931130 for ARGS:json.url
+    desc: Subscring to remote Webcalendar in SOGo
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -23,6 +23,30 @@ tests:
         output:
           log:
             no_expect_ids:
+              - 920230
+              - 920272
+              - 920273
+              - 931130
+  - test_id: 2
+    desc: Subscring to remote Webcalendar in SOGo
+    stages:
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: SOGo rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/json;charset=UTF-8
+          port: 80
+          method: POST
+          uri: /SOGo/so/user@example.com/Calendar/addWebCalendar
+          data: |-
+            {"url":"https://calendar.google.com/calendar/ical/c_glsll5etlmcb3it0k433fcl5rc%40group.calendar.google.com/public/basic.ics"}
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids:
+              - 920230
               - 920272
               - 920273
               - 931130
