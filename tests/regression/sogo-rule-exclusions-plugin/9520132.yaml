@@ -5,7 +5,7 @@ meta:
 rule_id: 9520132
 tests:
   - test_id: 1
-    desc: Disable 931130 for ARGS:json.urls.webDavICSURL
+    desc: Adding a remote web calendar
     stages:
       - input:
           dest_addr: 127.0.0.1
